@@ -14,6 +14,7 @@ namespace WalmartParser.Models
         public ShoesContext(DbContextOptions<ShoesContext> options) 
             : base(options)
         {
+            Database.EnsureDeleted();
             Database.EnsureCreated();
         }
     }

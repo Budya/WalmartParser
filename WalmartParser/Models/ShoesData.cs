@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace WalmartParser.Models
 {
@@ -21,6 +22,26 @@ namespace WalmartParser.Models
                 shoeses = Parser.ParserProcess.Parse();
 
                 Console.ReadKey();
+
+                using (context)
+                {
+                    foreach (var shoe in shoeses)
+                    {
+                        ShoesDb shoesDb = new ShoesDb();
+
+                        shoesDb.BrandName = shoe.ShoesBrand;
+                        shoesDb.Name = shoe.ShoesTitle;
+                        shoesDb.Image = shoe.ShoesImageUrl;
+                        shoesDb.Prise = shoe.ShoesPrice;
+                        foreach (string variant in shoe.ShoesVariants)
+                        {
+                            shoesDb.Variety.Na
+                        }
+
+                    }
+                    
+                }
+
 
             }
         }

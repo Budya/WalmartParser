@@ -8,11 +8,17 @@ namespace WalmartParser.Models
     public class ShoesDb
     {
         public int Id { get; set; }
+        public string Image { get; set; }
         public string Name { get; set; }
         public string BrandName { get; set; }
         public string Prise { get; set; }
 
-        public List<Variety> Variety { get; set; }
+        public ICollection<Variety> Variety { get; set; }
+
+        ShoesDb()
+        {
+            Variety  = new List<Variety>();
+        }
     }
 
     public class Variety

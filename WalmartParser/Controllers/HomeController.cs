@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using WalmartParser.Models;
 
 namespace WalmartParser.Controllers
@@ -18,7 +19,7 @@ namespace WalmartParser.Controllers
         }
         public IActionResult Index()
         {
-            
+            ViewBag.shoes = db.Shoes;
             return View();
         }
     }
