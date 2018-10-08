@@ -12,11 +12,16 @@ namespace WalmartParser.Models
         {
             if (!context.Shoes.Any())
             {
+                //List<Shoes> shoeses = new List<Shoes>();
+                //shoeses = Parser.ParserProcess.Parse();
+                //context.Shoes.AddRange(shoeses);
+
+                //context.SaveChanges();
                 List<Shoes> shoeses = new List<Shoes>();
                 shoeses = Parser.ParserProcess.Parse();
-                context.Shoes.AddRange(shoeses);
 
-                context.SaveChanges();
+                Console.ReadKey();
+
             }
         }
     }

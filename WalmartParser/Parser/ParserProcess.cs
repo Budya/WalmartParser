@@ -18,7 +18,7 @@ namespace WalmartParser.Parser
             
             var service = ChromeDriverService.CreateDefaultService(Environment.CurrentDirectory);
             var options = new ChromeOptions();
-            //options.AddArguments("--headless");
+            options.AddArguments("--headless");
 
 
             List<string> sourceUrls = new List<string>();

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace WalmartParser.Models
 {
+    // Class for parsing
     public class Shoes
     {
         public string ShoesImageUrl { get; set; }

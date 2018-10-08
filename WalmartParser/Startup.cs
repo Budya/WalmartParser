@@ -35,6 +35,7 @@ namespace WalmartParser
             {
                 app.UseBrowserLink();
                 app.UseDeveloperExceptionPage();
+                
             }
             else
             {

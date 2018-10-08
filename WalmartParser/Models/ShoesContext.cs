@@ -8,7 +8,8 @@ namespace WalmartParser.Models
 {
     public class ShoesContext : DbContext
     {
-        public  DbSet<Shoes> Shoes { get; set; }
+        public DbSet<ShoesDb> Shoes { get; set; }
+        public DbSet<Variety> Varieties { get; set; }
 
         public ShoesContext(DbContextOptions<ShoesContext> options) 
             : base(options)
