@@ -10,28 +10,16 @@ namespace WalmartParser.Controllers
 {
     public class HomeController : Controller
     {
+        private ShoesContext db;
+        public HomeController(ShoesContext context)
+        {
+            db = context;
+
+        }
         public IActionResult Index()
         {
-            return View();
-        }
-
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            
+            return View(db.Shoes.ToList());
         }
     }
 }
