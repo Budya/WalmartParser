@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,7 +12,7 @@ namespace WalmartParser.Models
 
         public static void Initialize(ShoesContext context)
         {
-            if (!context.Shoes.Any())
+            if (!context.ShoesTable.Any())
             {
                 //List<Shoes> shoeses = new List<Shoes>();
                 //shoeses = Parser.ParserProcess.Parse();
@@ -21,28 +22,26 @@ namespace WalmartParser.Models
                 List<Shoes> shoeses = new List<Shoes>();
                 shoeses = Parser.ParserProcess.Parse();
 
-                Console.ReadKey();
-
-                using (context)
+                ShoesContext db;
+                using (db = context)
                 {
                     foreach (var shoe in shoeses)
                     {
-                        ShoesDb shoesDb = new ShoesDb();
-
-                        shoesDb.BrandName = shoe.ShoesBrand;
-                        shoesDb.Name = shoe.ShoesTitle;
-                        shoesDb.Image = shoe.ShoesImageUrl;
-                        shoesDb.Prise = shoe.ShoesPrice;
-                        foreach (string variant in shoe.ShoesVariants)
+                        ShoesDb shoesDb = new ShoesDb
                         {
-                            shoesDb.Variety.Na
-                        }
+                            BrandName = shoe.ShoesBrand,
+                            Name = shoe.ShoesTitle,
+                            Image = shoe.ShoesImageUrl,
+                            Prise = shoe.ShoesPrice
+                        };
 
+
+                        db.ShoesTable.Add(shoesDb);
+                        db.SaveChanges();
                     }
-                    
+
+                    //int i = 1;
                 }
-
-
             }
         }
     }

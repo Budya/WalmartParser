@@ -19,7 +19,7 @@ namespace WalmartParser.Controllers
         }
         public IActionResult Index()
         {
-            ViewBag.shoes = db.Shoes;
+           
             return View();
         }
     }
