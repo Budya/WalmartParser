@@ -12,20 +12,16 @@ namespace WalmartParser.Models
 
         public static void Initialize(ShoesContext context)
         {
-            if (!context.ShoesTable.Any())
+            if (!context.Shoes.Any())
             {
-                //List<Shoes> shoeses = new List<Shoes>();
-                //shoeses = Parser.ParserProcess.Parse();
-                //context.Shoes.AddRange(shoeses);
-
-                //context.SaveChanges();
-                List<Shoes> shoeses = new List<Shoes>();
-                shoeses = Parser.ParserProcess.Parse();
+                
+                List<Shoes> shoesParsed = new List<Shoes>();
+                shoesParsed = Parser.ParserProcess.Parse();
 
                 ShoesContext db;
                 using (db = context)
                 {
-                    foreach (var shoe in shoeses)
+                    foreach (var shoe in shoesParsed)
                     {
                         ShoesDb shoesDb = new ShoesDb
                         {
@@ -36,11 +32,9 @@ namespace WalmartParser.Models
                         };
 
 
-                        db.ShoesTable.Add(shoesDb);
+                        db.Shoes.Add(shoesDb);
                         db.SaveChanges();
                     }
-
-                    //int i = 1;
                 }
             }
         }

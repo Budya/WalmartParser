@@ -18,7 +18,7 @@ namespace WalmartParser.Parser
             
             var service = ChromeDriverService.CreateDefaultService(Environment.CurrentDirectory);
             var options = new ChromeOptions();
-            //options.AddArguments("--headless");
+            options.AddArguments("--headless");
 
 
             List<string> sourceUrls = new List<string>();
@@ -122,28 +122,28 @@ namespace WalmartParser.Parser
                         shoes.ShoesTitle = webElement.FindElement(By.TagName("img"))
                             .GetAttribute("alt");
 
-                        try
-                        {
-                            var selectors = webElement.FindElement(By.ClassName("swatch-selector"))
-                                .FindElements(By.TagName("button"));
-                            foreach (var selector in selectors)
-                            {
-                                if (comPrmt)
-                                {
-                                    Console.WriteLine(selector.FindElement(By.TagName("img")).GetAttribute("alt"));
-                                }
+                        //try
+                        //{
+                        //    var selectors = webElement.FindElement(By.ClassName("swatch-selector"))
+                        //        .FindElements(By.TagName("button"));
+                        //    foreach (var selector in selectors)
+                        //    {
+                        //        if (comPrmt)
+                        //        {
+                        //            Console.WriteLine(selector.FindElement(By.TagName("img")).GetAttribute("alt"));
+                        //        }
 
-                                // shoes variants
-                                string str = selector.FindElement(By.TagName("img")).GetAttribute("alt");
-                                shoes.ShoesVariants.Add(str);
-                            }
-                        }
-                        catch (Exception e)
-                        {
-                            //Console.WriteLine(e.Message);
+                        //        // shoes variants
+                        //        string str = selector.FindElement(By.TagName("img")).GetAttribute("alt");
+                        //        shoes.ShoesVariants.Add(str);
+                        //    }
+                        //}
+                        //catch (Exception e)
+                        //{
+                        //    //Console.WriteLine(e.Message);
 
-                            shoes.ShoesVariants.Add("No Variants");
-                        }
+                        //    shoes.ShoesVariants.Add("No Variants");
+                        //}
 
                         try
                         {
