@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Walmart Parser";
+    ViewData["Title"] = "Hello";
 }
 
 @model IEnumerable<WalmartParser.Models.ShoesDb>
@@ -17,10 +17,9 @@
         <td>Picture</td>
         <td>Brand Name</td>
         <td>Model Title</td>
-        <td>Options</td>
         <td>Price</td>
     </tr>
-    @foreach (var shoes in Model)
+    @foreach (var shoes in @ViewBag.shoes)
     {
         <tr>
             <td><img src="@shoes.Image" /></td>
