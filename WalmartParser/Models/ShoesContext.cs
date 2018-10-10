@@ -10,8 +10,7 @@ namespace WalmartParser.Models
     {
         public DbSet<ShoesDb> Shoes { get; set; }
 
-        public ShoesContext(DbContextOptions<ShoesContext> options) 
-            : base(options)
+        public ShoesContext()
         {
             Database.EnsureDeleted();
             Database.EnsureCreated();
@@ -47,25 +46,5 @@ namespace WalmartParser.Models
             modelBuilder.Entity<ShoesDb>().HasData(shoes);
             base.OnModelCreating(modelBuilder);
         }
-
-        //new ShoesDb[]
-        //{
-        //    new ShoesDb
-        //    {
-        //        Id =1,
-        //        Name = "Adidas",
-        //        Image = "Apple",
-        //        BrandName = "Adidas5",
-        //        Prise = "600"
-        //    },
-        //    new ShoesDb()
-        //    {
-        //        Id = 2,
-        //        Name = "Adidas",
-        //        Image = "Apple",
-        //        BrandName = "Adidas5",
-        //        Prise = "600"
-        //    }
-        //}
     }
 }

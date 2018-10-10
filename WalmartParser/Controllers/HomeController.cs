@@ -14,8 +14,7 @@ namespace WalmartParser.Controllers
         private ShoesContext db;
         public HomeController()
         {
-            db = new ShoesContext(new DbContextOptions<ShoesContext>());
-
+            db = new ShoesContext();
         }
         public IActionResult Index()
         {
