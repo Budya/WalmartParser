@@ -16,5 +16,7 @@ namespace WalmartParser.Models
             Database.EnsureDeleted();
             Database.EnsureCreated();
         }
+
+        
     }
 }

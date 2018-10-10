@@ -19,9 +19,9 @@ namespace WalmartParser.Controllers
         }
         public IActionResult Index()
         {
-            List<ShoesDb> viewShoes = new List<ShoesDb>();
-            viewShoes = db.Shoes.ToList();
-            ViewBag.shoes = viewShoes;
+            //List<ShoesDb> viewShoes = new List<ShoesDb>();
+            //viewShoes = db.Shoes.ToList();
+            ViewBag.shoes = db.Shoes;
             return View();
         }
     }

@@ -14,28 +14,23 @@ namespace WalmartParser.Models
         {
             if (!context.Shoes.Any())
             {
-                
-                List<Shoes> shoesParsed = new List<Shoes>();
-                shoesParsed = Parser.ParserProcess.Parse();
-
-                ShoesContext db;
-                using (db = context)
-                {
-                    foreach (var shoe in shoesParsed)
+                context.Shoes.AddRange(
+                    new ShoesDb
                     {
-                        ShoesDb shoesDb = new ShoesDb
-                        {
-                            BrandName = shoe.ShoesBrand,
-                            Name = shoe.ShoesTitle,
-                            Image = shoe.ShoesImageUrl,
-                            Prise = shoe.ShoesPrice
-                        };
-
-
-                        db.Shoes.Add(shoesDb);
-                        db.SaveChanges();
+                        Name = "Adidas",
+                        Image = "Apple",
+                        BrandName = "Adidas5",
+                        Prise = "600"
+                    },
+                    new ShoesDb()
+                    {
+                        Name = "Adidas",
+                        Image = "Apple",
+                        BrandName = "Adidas5",
+                        Prise = "600"
                     }
-                }
+                );
+                context.SaveChanges();
             }
         }
     }

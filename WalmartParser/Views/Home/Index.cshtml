@@ -14,7 +14,7 @@
     <h3>Man Shoes</h3>
 <table>
     <tr>
-        <td>Picture</td>
+        @*<td>Picture</td>*@
         <td>Brand Name</td>
         <td>Model Title</td>
         <td>Price</td>
@@ -22,7 +22,7 @@
     @foreach (var shoes in @ViewBag.shoes)
     {
         <tr>
-            <td><img src="@shoes.Image" /></td>
+            @*<td><img src="@shoes.Image" /></td>*@
             <td>@shoes.BrandName</td>
             <td>@shoes.Name</td>
             <td>@shoes.Prise</td>
