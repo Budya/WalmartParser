@@ -13,18 +13,18 @@
 <body>
     <h3>Man Shoes</h3>
     <div class="container">
-        <table class="table-striped">
-            <thead>
-                <tr>
-                    <td>Picture</td>
-                    <td>Brand Name</td>
-                    <td>Model Title</td>
-                    <td>Price</td>
+        <table class="table-striped table-condensed">
+            <thead >
+                <tr text-align: center>
+                    <td><b>Picture</b></td>
+                    <td><bBrand Name></bBrand></td>
+                    <td><b>Model Title</b></td>
+                    <td><b>Price</b></td>
                 </tr>
             </thead>
             @foreach (var shoes in @ViewBag.shoes)
             {
-                <tr>
+                <tr overflow-wrap: normal>
                     <td><img src="@shoes.Image" class="img-thumbnail" alt="@shoes.BrandName" /></td>
                     <td>@shoes.BrandName</td>
                     <td>@shoes.Name</td>
