@@ -23,27 +23,26 @@ namespace WalmartParser.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            ShoesDb[] shoes = new ShoesDb[]
-            {
-                new ShoesDb
-                {
-                    Id = 1,
-                    Name = "Adidas",
-                    Image = "Apple",
-                    BrandName = "Adidas5",
-                    Prise = "600"
-                },
-                new ShoesDb()
-                {
-                    Id = 2,
-                    Name = "Adidas",
-                    Image = "Apple",
-                    BrandName = "Adidas5",
-                    Prise = "600"
-                }
-            };
 
-            modelBuilder.Entity<ShoesDb>().HasData(shoes);
+            List<Shoes> walmShoes = new List<Shoes>();
+            walmShoes = Parser.ParserProcess.Parse();
+            List<ShoesDb> tempList = new List<ShoesDb>();
+            for (int i = 0; i < walmShoes.Count; i++)
+            {
+                ShoesDb tempShoes = new ShoesDb
+                {
+                    BrandName = walmShoes[i].ShoesBrand,
+                    Id = i+1,
+                    Image = walmShoes[i].ShoesImageUrl,
+                    Name = walmShoes[i].ShoesTitle,
+                    Prise = walmShoes[i].ShoesPrice
+                };
+                tempList.Add(tempShoes);
+            }
+            
+            
+
+            modelBuilder.Entity<ShoesDb>().HasData(tempList.Cast<ShoesDb>().ToArray());
             base.OnModelCreating(modelBuilder);
         }
     }
