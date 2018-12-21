@@ -1,4 +1,8 @@
 # WalmartParser
+/// WalmartParser \ Parser \ ParserProcess.cs - 21 lines are commented out in the file to display the Chrome window, so when parsing a large number of pages you can understand what is happening /// Line 46 is commented out in the same file - the parser determines the number of pages to parse , instead, the code was added in line 47, in order to parse only one page of the site, because parsing one page takes about 20 seconds. ///
+
+P.S. The inclusion of the "headless" mode does not affect the speed of parsing, for the better, exactly (=
+
 
 ///
 WalmartParser\Parser\ParserProcess.cs - в файле закомментирована 21 строка
@@ -12,3 +16,4 @@ WalmartParser\Parser\ParserProcess.cs - в файле закомментиров
 
 
 P.S. включение "headless" режима на скорость парсинга не влият, в лучшую сторону точно (=
+
